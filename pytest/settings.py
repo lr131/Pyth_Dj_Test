@@ -71,6 +71,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'pytest.wsgi.application'
+AUTHENTICATION_BACKENDS = (
+    ('django.contrib.auth.backends.ModelBackend'),
+)
 
 
 # Database
@@ -82,7 +85,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+FIXTURE_DIRS = (
+   '/path/to/grups/fixtures/',
+   '/path/to/students/fixtures/'
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

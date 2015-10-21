@@ -20,11 +20,8 @@
 или 
   `$ python manage.py syncdb`
 
-2. Файл dbinitial_data.json переименовать в initial_data.json
-3. Снова выполнить 
-  `$ python manage.py migrate` 
-или 
-  `$ python manage.py syncdb`
-4. Заупустить сервер 
+2. Загрузить данные 
+  `$ python manage.py loaddata initial_data`
+3. Заупустить сервер 
   `$python manage.py runserver`
 

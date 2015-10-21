@@ -1,0 +1,110 @@
+[
+  {
+    "fields": {
+      "name": "gr1",
+      "starosta": 2
+    },
+    "model": "grups.grup",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "gr2",
+      "starosta": 6
+    },
+    "model": "grups.grup",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "bdata": "1975-10-21",
+      "cgrup": 1,
+      "bilet": "15625ee6",
+      "fio": "Samuel Colt"
+    },
+    "model": "students.student",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "bdata": "1986-02-05",
+      "cgrup": 1,
+      "bilet": "7523165e2",
+      "fio": "Hiram Stevens Maxim"
+    },
+    "model": "students.student",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "bdata": "1973-06-19",
+      "cgrup": 1,
+      "bilet": "456151561",
+      "fio": "Leon Nagant"
+    },
+    "model": "students.student",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "bdata": "1970-04-16",
+      "cgrup": 1,
+      "bilet": "564123df564",
+      "fio": "Emile Nagant"
+    },
+    "model": "students.student",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "bdata": "1989-03-06",
+      "cgrup": 1,
+      "bilet": "489159812",
+      "fio": "Georg Johann Luger"
+    },
+    "model": "students.student",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "bdata": "1987-10-20",
+      "cgrup": 2,
+      "bilet": "456",
+      "fio": "Robin Hood"
+    },
+    "model": "students.student",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "bdata": "1984-10-31",
+      "cgrup": 2,
+      "bilet": "822",
+      "fio": "Richard FitzGilbert de Clare"
+    },
+    "model": "students.student",
+    "pk": 7
+  },
+   {
+    "fields": {
+      "is_superuser": true,
+      "is_active": true,
+      "date_joined": "2015-10-20T05:57:41.435Z",
+      "username": "admin",
+      "last_login": "2015-10-20T06:08:09.417Z",
+      "password": "pbkdf2_sha256$20000$2g4pm6HtBp6Z$83kyAFSAhU2aNzXUPAAH5EnYhmyBLiY5G/37XTnmsQQ=",
+      "groups": [
+        
+      ],
+      "is_staff": true,
+      "last_name": "",
+      "user_permissions": [
+        
+      ],
+      "email": "lr131k@gmail.com",
+      "first_name": ""
+    },
+    "model": "auth.user",
+    "pk": 1
+  }
+]
