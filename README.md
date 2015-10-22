@@ -23,6 +23,6 @@
 
 2. Загрузить данные 
   `$ python manage.py loaddata initial_data`
-3. Заупустить сервер 
+3. Запустить сервер 
   `$python manage.py runserver`
 
