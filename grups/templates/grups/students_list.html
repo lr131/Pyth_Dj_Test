@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+  
+  <head>
+    <title>List of Students  </title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+  </head>
+  
+  <body>
+    <div class="container">
+      <h1>Students</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th> ФИО Студента </th>
+            <th> Дата рождения </th>
+            <th> Группа  </th>
+            <th> Билет </th>
+            <th> Староста </th>
+            <th> Edit </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fio in gr_id.student_set.all %}
+            <tr>
+             <th> {{ fio }} </th>
+             <th> {{ fio.bdata }} </th>
+             <th> {{ gr_id  }} </th>
+             <th> {{ fio.bilet }} </th>
+             {% if fio = gr_id.starosta %}
+                <th> Староста </th>
+             {% else %}
+                <th> -- </th>
+             {% endif %}
+             <th> Edit </th>
+            </tr>
+          {% endfor %}
+            <tr>
+             <th> Количество студентов в группе </th>
+             <th> {{ gr_id.student_set.count }} </th>
+             <th>  </th>
+             <th>  </th>
+             <th>  </th>
+             <th>  </th>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+
+</html> 

@@ -15,13 +15,13 @@
  
  Порядок действий при первом запуске
 -------------
-
 1. Для начала необходимо создать таблицы в базе данных. Сделать это можно при помощи  команды 
   `$ python manage.py migrate` 
-  или 
+или 
   `$ python manage.py syncdb`
 
 2. Загрузить данные 
   `$ python manage.py loaddata initial_data`
-3. Запустить сервер 
+3. Заупустить сервер 
   `$python manage.py runserver`
+
