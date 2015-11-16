@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <form action="/save/" method="post">
+        <div class="form-group">
+          <label class="control-label">Редактировать данные студента {{stud_id}}</label>
+          <div class="controls">
+            <input class="form-control" type="text" name="fio" id="fioID" placeholder={{stud_id.fio}}> 
+          </div>
+          <div class="controls">
+            <input class="form-control" type="date" name="bdata" id="bdataID" placeholder={{stud_id.bdata|date:"SHORT_DATE_FORMAT"}}> 
+          </div>
+          <div class="controls">
+            <input class="form-control" type="text" name="bilet" id="biletID" placeholder={{stud_id.bilet}}> 
+          </div>
+            <select class="form-control" name="cgrup" id="cgrupID">
+             {% for name in gr_list %}
+              {% if stud_id.cgrup = name %}
+                <option selected value={{name}}> {{name}} </option>
+              {% else %}
+                <option value={{name}}> {{name}} </option>
+              {% endif %}
+            {% endfor %}
+            </select>
+        </div>
+        <input type="submit"/ value="Сохранить"> 
+        <br> <a href="{% url "students_list" gr_id %} ">Назад к списку </a> </br>
+      </form>
+{% endblock %}

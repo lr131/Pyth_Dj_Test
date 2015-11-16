@@ -1,6 +1,8 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
+
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.students_list, name='students_list'),
+    url(r'^edit/(?P<grup_id>[0-9]+)/student/(?P<st_id>[0-9]+)/$', views.student_edit, name='student_edit'),
+    url(r'^new/(?P<grup_id>[0-9]+)/$', views.student_create, name='student_create'),
 ]

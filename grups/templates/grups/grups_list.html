@@ -1,17 +1,6 @@
-<!doctype html>
+{% extends "base.html" %}
 
-<html>
-  
-  <head>
-    <title>List of Groups </title>
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
-  </head>
-  
-  <body>
-    <div class="container">
+{% block content %}
       <table class="table">
         <thead>
           <tr>
@@ -29,12 +18,10 @@
             <th> <a href="{% url "students_list" name.pk %} "> {{ name }} </a> </th>
             <th> {{ name.student_set.count }} </th>
             <th> {{ name.starosta }} </th>
-            <th> Edit </th>
+            <th> <a href="{% url "grup_edit" name.pk %} ">  Edit </a> </th>
           </tr>
         {% endfor %} 
         </tbody>
       </table>
-    </div>
-  </body>
-
-</html> 
+      <a class="btn btn-primary" href="{% url "grup_create" %} ">Создать группу</a>
+{% endblock %}

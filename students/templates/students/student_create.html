@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+  
+  <head>
+    <title>Добавить студента в группу {{ gr_id }} </title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+  </head>
+  
+  <body>
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label class="control-label">Добавить студента </label>
+          <div class="controls">
+            <input class="form-control" type="text" placeholder="Введите ФИО"> 
+          </div>
+          <div class="controls">
+            <input class="form-control" type="date" placeholder="Введите дату рождения"> 
+          </div>
+          <div class="controls">
+            <input class="form-control" type="text" placeholder="Введите номер cтуденческого"> 
+          </div>
+            <select class="form-control">
+             {% for name in gr_list %}
+              {% if gr_id = name.pk %}
+                <option selected value={{name}}> {{name}} </option>
+              {% else %}
+                <option value={{name}}> {{name}} </option>
+              {% endif %}
+            {% endfor %}
+            </select>
+        </div>
+      </form>
+      <br> <a href="{% url "students_list" gr_id %} ">Назад к списку </a> </br>
+    </div>
+  </body>
+
+</html>

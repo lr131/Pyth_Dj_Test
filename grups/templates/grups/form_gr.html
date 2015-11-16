@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <form>
+        <div class="form-group">
+ <!--         <label class="control-label">Редактирование {{gr_id}} группы </label>
+          <div class="controls">
+            <input class="form-control" type="text" value={{gr_id.name}}>    -->
+          </div>
+          {% if gr_id > 0 %}
+            <select class="form-control">
+            {% for fio in gr_id.student_set.all %}
+              {% if fio = gr_id.starosta %}
+                 <option selected value={{ fio }}>{{ fio }}</option>
+              {% else %}
+              <option value={{ fio }}>{{ fio }}</option>
+              {% endif %}
+            {% endfor %}
+            </select>
+           {% endif %}
+        </div>
+      </form>
+      <a class="btn btn-primary">Сохранить</a>
+      <br> <a href="{% url "grups_list" %} ">Назад к списку </a> </br>
+{% endblock %}
