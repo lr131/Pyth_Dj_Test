@@ -3,14 +3,14 @@
 {% block content %}
       <form>
         <div class="form-group">
- <!--         <label class="control-label">Редактирование {{gr_id}} группы </label>
+          <label class="control-label">Редактирование {{gr}} группы </label>
           <div class="controls">
-            <input class="form-control" type="text" value={{gr_id.name}}>    -->
+            <input class="form-control" type="text" placeholder="группа {{gr}} ">   
           </div>
-          {% if gr_id > 0 %}
+          {% if gr.student_set.count > 0 %}
             <select class="form-control">
-            {% for fio in gr_id.student_set.all %}
-              {% if fio = gr_id.starosta %}
+            {% for fio in gr.student_set.all %}
+              {% if fio = gr.starosta %}
                  <option selected value={{ fio }}>{{ fio }}</option>
               {% else %}
               <option value={{ fio }}>{{ fio }}</option>

@@ -22,8 +22,8 @@ def grup_create(request):
     return render(request, 'grups/form_gr.html')
 
 def grup_edit(request, grup_id):
-    gr_id = get_object_or_404(Grup, pk=grup_id)
-    context = {'gr_id': gr_id}
+    gr = get_object_or_404(Grup, pk=grup_id)
+    context = {'gr_id': grup_id, 'gr': gr}
 #    return render(request, 'grups/grup_edit.html', context)
-     return render(request, 'grups/form_gr.html', context)
+    return render(request, 'grups/form_gr.html', context)
 
