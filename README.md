@@ -25,3 +25,9 @@
 3. Заупустить сервер 
   `$python manage.py runserver`
 
+-------------
+without workon:
+
+user@linux-03t9:~> cd ~/environments/
+
+source test/bin/activate
