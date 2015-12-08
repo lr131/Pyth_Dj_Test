@@ -28,8 +28,10 @@
              {% endif %}
              {% if user.is_authenticated %}
              <th> <a class="btn btn-default" href="{% url "student_edit" gr_id.pk fio.pk %} "><span class="glyphicon glyphicon-pencil"></span></a>
-            </tr> 
+            </th> 
+            <th> <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove"></span></a> </th>
             {% endif %}
+            </tr>
           {% endfor %}
             <tr>
              <th> Количество студентов в группе </th>

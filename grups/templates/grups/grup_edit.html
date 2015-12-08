@@ -5,7 +5,16 @@
         <div class="form-group">
          <form method="POST" class="post-form">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="form-group">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+            </div>
+            {% if grup_id %}
+            <div class="form-group">
+                {{ form.starosta.label_tag }}
+                {{ form.starosta }}
+            </div>
+            {% endif %}
             <button type="submit" class="btn btn-primary">Сохранить </button>
         </form>
       </div>

@@ -21,8 +21,10 @@
             <th> {{ name.starosta }} </th>
             {% if user.is_authenticated %}
             <th> <a class="btn btn-default" href="{% url "grup_edit" name.pk %} "><span class="glyphicon glyphicon-pencil"></span></a> </th>
-          </tr>
+            <th> <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove"></span></a>
+
           {% endif %}
+          </tr>
         {% endfor %} 
         </tbody>
       </table>
