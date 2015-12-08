@@ -16,7 +16,7 @@ def student_edit(request, grup_id, st_id):
             return redirect('grups.views.students_list', grup_id)
     else:
         form = StudForm()
-    return render(request, 'students/student_edit.html', {'form': form})
+    return render(request,'students/student_edit.html', {'form': form})
 
 
 def student_create(request, grup_id):
