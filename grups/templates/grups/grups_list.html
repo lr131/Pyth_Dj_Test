@@ -18,7 +18,7 @@
             <th> <a href="{% url "students_list" name.pk %} "> {{ name }} </a> </th>
             <th> {{ name.student_set.count }} </th>
             <th> {{ name.starosta }} </th>
-            <th> <a href="{% url "grup_edit" name.pk %} ">  Edit </a> </th>
+            <th> <a class="btn btn-default" href="{% url "grup_edit" name.pk %} "><span class="glyphicon glyphicon-pencil"></span></a> </th>
           </tr>
         {% endfor %} 
         </tbody>

@@ -25,7 +25,7 @@
              {% else %}
                 <th> -- </th>
              {% endif %}
-             <th> <a href="{% url "student_edit" gr_id.pk fio.pk %} "> Edit </a> </th>
+             <th> <a class="btn btn-default" href="{% url "student_edit" gr_id.pk fio.pk %} "><span class="glyphicon glyphicon-pencil"></span></a>
             </tr>
           {% endfor %}
             <tr>

@@ -1,22 +1,6 @@
 [
   {
     "fields": {
-      "name": "gr1",
-      "starosta": 2
-    },
-    "model": "grups.grup",
-    "pk": 1
-  },
-  {
-    "fields": {
-      "name": "gr2",
-      "starosta": 6
-    },
-    "model": "grups.grup",
-    "pk": 2
-  },
-  {
-    "fields": {
       "bdata": "1975-10-21",
       "cgrup": 1,
       "bilet": "15625ee6",

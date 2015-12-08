@@ -1,17 +1,31 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
+from .forms import StudForm
 from .models import Student
 from django.shortcuts import get_object_or_404
 from grups.models import Grup
 
 
 def student_edit(request, grup_id, st_id):
-    gr_list = Grup.objects.order_by('name')
-    stud_id = get_object_or_404(Student, pk=st_id)
-    context = {'gr_id': grup_id, 'gr_list': gr_list, 'stud_id': stud_id}
-    return render(request, 'students/student_edit.html', context)
+    stud = get_object_or_404(Student, pk=st_id)
+    if request.method == "POST":
+        form = StudForm(request.POST, instance=stud)
+        if form.is_valid():
+            stud = form.save()
+            stud.save()
+            return redirect('grups.views.students_list', grup_id)
+    else:
+        form = StudForm()
+    return render(request, 'students/student_edit.html', {'form': form})
+
 
 def student_create(request, grup_id):
-    gr_list = Grup.objects.order_by('name')
-    context = {'gr_id': grup_id, 'gr_list': gr_list}
-    return render(request, 'students/student_create.html', context)
-
+    if request.method == "POST":
+        form = StudForm(request.POST)
+        if form.is_valid():
+            stud = form.save()
+            stud.save()
+            return redirect('grups.views.students_list', grup_id)
+    else:
+        form = StudForm()
+    return render(request, 'students/student_edit.html', {'form': form})
