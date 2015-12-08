@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-
-from students.models import Student
-
-from .forms import GrupForm
-
 from django.shortcuts import get_object_or_404
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django import forms
+from students.models import Student
 from .models import Grup
+from .forms import GrupForm
 
 
 # Create your views here.
@@ -28,7 +28,7 @@ def grup_create(request):
             form.save()
             #grup = form.save()
             #grup.save()
-            return redirect('grups:grups_list')
+            return redirect('grups.views.grups_list')
     else:
         form = GrupForm()
     return render(request, 'grups/grup_edit.html', {'form': form})
