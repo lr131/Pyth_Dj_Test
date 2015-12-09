@@ -11,6 +11,7 @@
             <th> Билет </th>
             <th> Староста </th>
             <th> Edit </th>
+            <th> Del </th>
           </tr>
         </thead>
         <tbody>
@@ -25,7 +26,11 @@
              {% else %}
                 <th> -- </th>
              {% endif %}
-             <th> <a href="{% url "student_edit" gr_id.pk fio.pk %} "> Edit </a> </th>
+             {% if user.is_authenticated %}
+             <th> <a class="btn btn-default" href="{% url "student_edit" gr_id.pk fio.pk %} "><span class="glyphicon glyphicon-pencil"></span></a>
+            </th> 
+            <th> <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove"></span></a> </th>
+            {% endif %}
             </tr>
           {% endfor %}
             <tr>
@@ -38,6 +43,8 @@
             </tr>
         </tbody>
       </table>
+      {% if user.is_authenticated %}
       <a class="btn btn-primary" href="{% url "student_create" gr_id.pk %} ">Добавить студента </a>
+      {% endif %}
       <br> <a href="{% url "grups_list" %} ">Назад к списку </a> </br>
 {% endblock %}

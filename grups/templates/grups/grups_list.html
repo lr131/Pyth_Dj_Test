@@ -9,6 +9,7 @@
             <th> количество </th>
             <th> Староста</th>
             <th> Edit </th>
+            <th> Del </th>
           </tr>
         </thead>
         <tbody>
@@ -18,10 +19,16 @@
             <th> <a href="{% url "students_list" name.pk %} "> {{ name }} </a> </th>
             <th> {{ name.student_set.count }} </th>
             <th> {{ name.starosta }} </th>
-            <th> <a href="{% url "grup_edit" name.pk %} ">  Edit </a> </th>
+            {% if user.is_authenticated %}
+            <th> <a class="btn btn-default" href="{% url "grup_edit" name.pk %} "><span class="glyphicon glyphicon-pencil"></span></a> </th>
+            <th> <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove"></span></a>
+
+          {% endif %}
           </tr>
         {% endfor %} 
         </tbody>
       </table>
+      {% if user.is_authenticated %}
       <a class="btn btn-primary" href="{% url "grup_create" %} ">Создать группу</a>
+      {% endif %}
 {% endblock %}
