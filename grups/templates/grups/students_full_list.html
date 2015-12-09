@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-12">
+      <h1>Студенты </h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th> ФИО Студента </th>
+            <th> Дата рождения </th>
+            <th> Группа  </th>
+            <th> Билет </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fio in st_list %}
+            <tr>
+             <th> {{ fio }} </th>
+             <th> {{ fio.bdata }} </th>
+             <th> {{ fio.cgrup  }} </th>
+             <th> {{ fio.bilet }} </th>
+            </tr>
+          {% endfor %}
+        </tbody>
+      <br> <a href="{% url "grups_list" %} ">Назад к списку </a> </br>
+</div>
+{% endblock %}

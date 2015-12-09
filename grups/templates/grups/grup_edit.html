@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-      <form>
+    <div class="col-md-8">
         <div class="form-group">
          <form method="POST" class="post-form">
             {% csrf_token %}
@@ -15,8 +15,9 @@
                 {{ form.starosta }}
             </div>
             {% endif %}
-            <button type="submit" class="btn btn-primary">Сохранить </button>
-        </form>
-      </div>
+            <button type="submit" class="btn btn-primary btn-md">Сохранить </button>
+          </form>
+       </div>
       <br> <a href="{% url "grups_list" %} ">Назад к списку </a> </br>
+    </div>
 {% endblock %}

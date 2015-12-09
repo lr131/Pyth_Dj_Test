@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="col-md-12">
       <table class="table">
         <thead>
           <tr>
@@ -20,15 +21,21 @@
             <th> {{ name.student_set.count }} </th>
             <th> {{ name.starosta }} </th>
             {% if user.is_authenticated %}
-            <th> <a class="btn btn-default" href="{% url "grup_edit" name.pk %} "><span class="glyphicon glyphicon-pencil"></span></a> </th>
-            <th> <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove"></span></a>
-
+		<th> <a class="btn btn-default btn-xs" href="{% url "grup_edit" name.pk %}"><span class="glyphicon glyphicon-pencil"></span></a> </th>
+		<th> <a class="btn btn-default btn-xs" href="{% url "grup_del" name.pk %}" > <span class="glyphicon glyphicon-remove"></span></a> </th>
           {% endif %}
           </tr>
         {% endfor %} 
         </tbody>
       </table>
+      <div id="hide-me" class="collapse">
+	  <div class="panel panel-warning">
+	    <div class="panel-heading"> Группа не пустая! Подтвердите удаление</div>
+	    <div class="panel-body"> <a class="btn btn-default btn-md" href="" > Подтвердить </a>   <a class="btn btn-default btn-md" data-toggle="collapse" data-target="#hide-me" href="" %} >  Отменить </a>  </div>
+	  </div>
+      </div>
       {% if user.is_authenticated %}
       <a class="btn btn-primary" href="{% url "grup_create" %} ">Создать группу</a>
       {% endif %}
+</div>
 {% endblock %}

@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-      <h1>Students</h1>
+<div class="col-md-12">
+      <h2>Студенты группы </h2>
       <table class="table">
         <thead>
           <tr>
@@ -18,18 +19,19 @@
           {% for fio in gr_id.student_set.all %}
             <tr>
              <th> {{ fio }} </th>
-             <th> {{ fio.bdata|date:"SHORT_DATE_FORMAT" }} </th>
+             <th> {{ fio.bdata|date:'d.m.Y' }} </th>
              <th> {{ gr_id  }} </th>
              <th> {{ fio.bilet }} </th>
              {% if fio = gr_id.starosta %}
-                <th> Староста </th>
+                <th> <span class="glyphicon glyphicon-ok"></span>  </th>
              {% else %}
-                <th> -- </th>
+                <th>  </th>
              {% endif %}
              {% if user.is_authenticated %}
-             <th> <a class="btn btn-default" href="{% url "student_edit" gr_id.pk fio.pk %} "><span class="glyphicon glyphicon-pencil"></span></a>
+             <th> <a class="btn btn-default btn-xs" href="{% url "student_edit" gr_id.pk fio.pk %} "><span class="glyphicon glyphicon-pencil"></span></a>
             </th> 
-            <th> <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove"></span></a> </th>
+<!--             <th> <a class="btn btn-default btn-xs" href="{% url "student_del" gr_id.pk fio.pk %}"><span class="glyphicon glyphicon-remove"></span></a> </th> -->
+             <th> <a class="btn btn-default btn-xs" href=""><span class="glyphicon glyphicon-remove"></span></a> </th>
             {% endif %}
             </tr>
           {% endfor %}
@@ -44,7 +46,8 @@
         </tbody>
       </table>
       {% if user.is_authenticated %}
-      <a class="btn btn-primary" href="{% url "student_create" gr_id.pk %} ">Добавить студента </a>
+<!--       <a class="btn btn-primary" href="{% url "student_create" gr_id.pk %} ">Добавить студента </a> -->
       {% endif %}
       <br> <a href="{% url "grups_list" %} ">Назад к списку </a> </br>
+</div>
 {% endblock %}
