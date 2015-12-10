@@ -56,15 +56,15 @@ def grup_edit(request, grup_id):
 
 def grup_del(request, grup_id):
   grup = get_object_or_404(Grup, pk=grup_id)
-  #if grup.name.student_set.count()
-      #studs = Student.objects.filter(cgrup=grup_id)
-      #try:
-      #studs.delete()
-    #except Exception as e:
-      #return render(request, 'grups/grups_list.html', {'error_message': e})
   try:
     grup.delete()
     return redirect('grups.views.grups_list')
-  except Exeption as e:
-    form = GrupForm(instance=grup)
-    return render(request, 'grups/grup_edit.html', {'error_message': e})
+  except Exception as e:
+    return render(request, 'groups/group_form.html', {'form': form, 'grup_id': grup_id, 'error_message': e})
+  
+def alarm_del(request, grup_id):
+  gr_id = get_object_or_404(Grup, pk=grup_id)
+  if gr_id.student_set.count():
+      return render(request, 'grups/alarm.html', {'gr_id': gr_id})
+  else:
+    return redirect('grups.views.grups_list', grup_id)

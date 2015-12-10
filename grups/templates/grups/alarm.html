@@ -1,0 +1,31 @@
+{% extends "grups/grups_list.html" %}
+
+
+{% block content %}
+<div class="panel panel-danger">
+    <div class="panel-heading">В этой группе учатся студенты! Точно удалить? Переопределите студентов в другие группы, если желаете сохранить их в базе.</div>
+    <div class="panel-body">
+    <table class="table">
+        <thead>
+          <tr>
+            <th> ФИО Студента </th>
+            <th> Дата рождения </th>
+            <th> Группа  </th>
+            <th> Билет </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fio in gr_id.student_set.all %}
+            <tr>
+             <th> {{ fio }} </th>
+             <th> {{ fio.bdata }} </th>
+             <th> {{ fio.cgrup  }} </th>
+             <th> {{ fio.bilet }} </th>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+        <a class="btn btn-success" href="{% url "grup_del" gr_id.pk %} "> Да, удалить </a>  <a class="btn btn-danger" href="{% url "grups_list" %} "> Нет, не трогать </a>
+    </div>
+</div>
+{% endblock content%}

@@ -22,7 +22,7 @@
             <th> {{ name.starosta }} </th>
             {% if user.is_authenticated %}
 		<th> <a class="btn btn-default btn-xs" href="{% url "grup_edit" name.pk %}"><span class="glyphicon glyphicon-pencil"></span></a> </th>
-		<th> <a class="btn btn-default btn-xs" href="{% url "grup_del" name.pk %}" > <span class="glyphicon glyphicon-remove"></span></a> </th>
+		<th> <a class="btn btn-default btn-xs" href="{% url "alarm_del" name.pk %}" > <span class="glyphicon glyphicon-remove"></span></a> </th>
           {% endif %}
           </tr>
         {% endfor %} 
