@@ -15,6 +15,7 @@ def student_edit(request, grup_id, st_id):
             stud.save()
             return redirect('grups.views.students_list', grup_id)
     else:
+<<<<<<< HEAD
         form = StudForm(instance=stud)
     return render(request,'students/student_edit.html', {'form': form})
 
@@ -39,3 +40,19 @@ def student_del(request, grup_id, st_id):
     except Exception as e:
       form = StudForm(instance=stud)
       return render(request, 'students/student_edit.html', {'form': form, 'stud': stud, 'error_message': e})
+=======
+        form = StudForm()
+    return render(request,'students/student_edit.html', {'form': form})
+
+
+def student_create(request, grup_id):
+    if request.method == "POST":
+        form = StudForm(request.POST)
+        if form.is_valid():
+            stud = form.save()
+            stud.save()
+            return redirect('grups.views.students_list', grup_id)
+    else:
+        form = StudForm()
+    return render(request, 'students/student_edit.html', {'form': form})
+>>>>>>> ee4c7cb82f33d7200010c5481ed845302a09ee56

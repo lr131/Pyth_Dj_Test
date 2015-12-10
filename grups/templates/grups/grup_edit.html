@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<<<<<<< HEAD
     <div class="col-md-8">
+=======
+      <form>
+>>>>>>> ee4c7cb82f33d7200010c5481ed845302a09ee56
         <div class="form-group">
          <form method="POST" class="post-form">
             {% csrf_token %}
@@ -15,9 +19,16 @@
                 {{ form.starosta }}
             </div>
             {% endif %}
+<<<<<<< HEAD
             <button type="submit" class="btn btn-primary btn-md">Сохранить </button>
           </form>
        </div>
       <br> <a href="{% url "grups_list" %} ">Назад к списку </a> </br>
     </div>
+=======
+            <button type="submit" class="btn btn-primary">Сохранить </button>
+        </form>
+      </div>
+      <br> <a href="{% url "grups_list" %} ">Назад к списку </a> </br>
+>>>>>>> ee4c7cb82f33d7200010c5481ed845302a09ee56
 {% endblock %}

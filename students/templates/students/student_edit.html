@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<<<<<<< HEAD
 
   <div class="col-md-8">
         <div class="form-group">
@@ -23,10 +24,21 @@
                 {{ form.cgrup.label_tag }}
                 {{ form.cgrup}}
             </div>
+=======
+      <form>
+        <div class="form-group">
+         <form method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+>>>>>>> ee4c7cb82f33d7200010c5481ed845302a09ee56
             <button type="submit" class="btn btn-primary">Сохранить </button>
         </form>
       </div>
       <br> <a href="{% url "grups_list" %} ">Назад к списку </a> </br>
+<<<<<<< HEAD
   </div>
 {% endblock %}
 
+=======
+{% endblock %}
+>>>>>>> ee4c7cb82f33d7200010c5481ed845302a09ee56

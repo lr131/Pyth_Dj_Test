@@ -28,10 +28,16 @@
                 <th>  </th>
              {% endif %}
              {% if user.is_authenticated %}
+<<<<<<< HEAD
              <th> <a class="btn btn-default btn-xs" href="{% url "student_edit" gr_id.pk fio.pk %} "><span class="glyphicon glyphicon-pencil"></span></a>
             </th> 
 <!--             <th> <a class="btn btn-default btn-xs" href="{% url "student_del" gr_id.pk fio.pk %}"><span class="glyphicon glyphicon-remove"></span></a> </th> -->
              <th> <a class="btn btn-default btn-xs" href=""><span class="glyphicon glyphicon-remove"></span></a> </th>
+=======
+             <th> <a class="btn btn-default" href="{% url "student_edit" gr_id.pk fio.pk %} "><span class="glyphicon glyphicon-pencil"></span></a>
+            </th> 
+            <th> <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove"></span></a> </th>
+>>>>>>> ee4c7cb82f33d7200010c5481ed845302a09ee56
             {% endif %}
             </tr>
           {% endfor %}
