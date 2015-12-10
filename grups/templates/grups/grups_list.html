@@ -21,20 +21,13 @@
             <th> {{ name.student_set.count }} </th>
             <th> {{ name.starosta }} </th>
             {% if user.is_authenticated %}
-<<<<<<< HEAD
 		<th> <a class="btn btn-default btn-xs" href="{% url "grup_edit" name.pk %}"><span class="glyphicon glyphicon-pencil"></span></a> </th>
 		<th> <a class="btn btn-default btn-xs" href="{% url "alarm_del" name.pk %}" > <span class="glyphicon glyphicon-remove"></span></a> </th>
-=======
-            <th> <a class="btn btn-default" href="{% url "grup_edit" name.pk %} "><span class="glyphicon glyphicon-pencil"></span></a> </th>
-            <th> <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove"></span></a>
-
->>>>>>> ee4c7cb82f33d7200010c5481ed845302a09ee56
           {% endif %}
           </tr>
         {% endfor %} 
         </tbody>
       </table>
-<<<<<<< HEAD
       <div id="hide-me" class="collapse">
 	  <div class="panel panel-warning">
 	    <div class="panel-heading"> Группа не пустая! Подтвердите удаление</div>
@@ -45,9 +38,4 @@
       <a class="btn btn-primary" href="{% url "grup_create" %} ">Создать группу</a>
       {% endif %}
 </div>
-=======
-      {% if user.is_authenticated %}
-      <a class="btn btn-primary" href="{% url "grup_create" %} ">Создать группу</a>
-      {% endif %}
->>>>>>> ee4c7cb82f33d7200010c5481ed845302a09ee56
 {% endblock %}
