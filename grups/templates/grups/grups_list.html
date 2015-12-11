@@ -9,8 +9,10 @@
             <th> Группа</th>
             <th> количество </th>
             <th> Староста</th>
-            <th> Edit </th>
-            <th> Del </th>
+            {% if user.is_authenticated %}
+	      <th> Edit </th>
+	      <th> Del </th>
+             {% endif %}
           </tr>
         </thead>
         <tbody>

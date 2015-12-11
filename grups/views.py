@@ -9,6 +9,11 @@ from .models import Grup
 from .forms import GrupForm
 
 
+def logout_view(request):
+    logout(request)
+    return redirect('grups.views.grups_list')
+    
+
 # Create your views here.
 def grups_list(request):
     gr_list = Grup.objects.order_by('name')
@@ -26,11 +31,7 @@ def students_full_list(request):
     context = {'st_list': st_list}
     return render(request, 'grups/students_full_list.html', context)
   
-#def students_full_list(request):
-    #grup_list = Grup.objects.all()
-    #context = {'grup_list': grup_list}
-    #return render(request, 'grups/students_list.html', context)
-
+@login_required
 def grup_create(request):
     form = GrupForm(request.POST or None)
     if request.method == "POST":      
@@ -39,7 +40,7 @@ def grup_create(request):
             return redirect('grups.views.grups_list')
     return render(request, 'grups/grup_edit.html', {'form': form})
 
-
+@login_required
 def grup_edit(request, grup_id):
     stud_list = Student.objects.filter(cgrup=grup_id)
     grup = get_object_or_404(Grup, pk=grup_id)
@@ -53,7 +54,7 @@ def grup_edit(request, grup_id):
         form = GrupForm(instance=grup)
     return render(request, 'grups/grup_edit.html', {'form': form, 'grup_id': grup_id})
   
-
+@login_required
 def grup_del(request, grup_id):
   grup = get_object_or_404(Grup, pk=grup_id)
   try:
@@ -61,7 +62,8 @@ def grup_del(request, grup_id):
     return redirect('grups.views.grups_list')
   except Exception as e:
     return render(request, 'groups/group_form.html', {'form': form, 'grup_id': grup_id, 'error_message': e})
-  
+
+@login_required  
 def alarm_del(request, grup_id):
   gr_id = get_object_or_404(Grup, pk=grup_id)
   if gr_id.student_set.count():

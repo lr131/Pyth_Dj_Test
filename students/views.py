@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .forms import StudForm
 from .models import Student
 from django.shortcuts import get_object_or_404
 from grups.models import Grup
 
-
+@login_required
 def student_edit(request, grup_id, st_id):
     stud = get_object_or_404(Student, pk=st_id)
     if request.method == "POST":
@@ -18,7 +20,7 @@ def student_edit(request, grup_id, st_id):
         form = StudForm(instance=stud)
     return render(request,'students/student_edit.html', {'form': form})
 
-
+@login_required
 def student_create(request, grup_id):
     gr_id = get_object_or_404(Grup, pk=grup_id)
     if request.method == "POST":
@@ -30,7 +32,7 @@ def student_create(request, grup_id):
       form = StudForm(initial={'cgrup': grup_id})
     return render(request, 'students/student_edit.html', {'form': form})
   
-
+@login_required
 def student_del(request, grup_id, st_id):
     stud = get_object_or_404(Student, pk=st_id)
     try:

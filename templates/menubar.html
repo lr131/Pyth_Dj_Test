@@ -16,12 +16,35 @@
                                                             <li>
                                                                     <a href="{% url "students_full_list" %}">Студенты</a>
                                                             </li>
-                                                    </ul>
-                                                    <ul class="nav navbar-nav navbar-right">
                                                             <li>
                                                                     <a target="_blank" href="https://github.com/lr131/Pyth_Dj_Test.git">ГитХаб</a>
                                                             </li>
                                                     </ul>
+                                                    <ul class="nav navbar-nav navbar-right">
+							{% if user.is_authenticated %}
+                                                            <li>
+                                                                    <a target="_blank" href="">Hi, User</a>
+                                                            </li>
+                                                            <li>
+                                                                  <a href="{% url "logout_view" %}">Logout</a>
+                                                            </li>
+                                                        {% else %}
+                                                            <li>
+                                                            <a>
+                                                                  <form role="form" class="form-inline">
+								    <div class="form-group">
+								      <input type="email" class="form-control input-sm" id="email" placeholder="Логин">
+								    </div>
+								    <div class="form-group">
+								      <input type="password" class="form-control input-sm" id="pass" placeholder="Пароль">
+								    </div>
+								    <button type="submit" class="btn btn-success btn-xs">Войти</button>
+								    </form>
+							    </a>
+                                                            </li>
+                                                        {% endif %}
+                                                    </ul>
+                                                    
                                             </div>
                                             
                                     </nav>
